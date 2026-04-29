@@ -1,0 +1,140 @@
+:root {
+  --background: #0f172a;
+  --surface: #111827;
+  --surface-muted: #1f2937;
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --primary: #22d3ee;
+  --danger: #fca5a5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top, #1e293b, var(--background));
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.chat-shell {
+  width: min(900px, 100%);
+  height: min(90vh, 920px);
+  border: 1px solid #334155;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 92%, black);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  overflow: hidden;
+}
+
+.chat-header {
+  border-bottom: 1px solid #334155;
+  padding: 1rem 1.2rem;
+}
+
+.chat-header h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.chat-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.chat-messages {
+  padding: 1rem 1.2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.message {
+  max-width: 90%;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  line-height: 1.45;
+  border: 1px solid #334155;
+}
+
+.message-user {
+  background: #0b3b4a;
+  align-self: flex-end;
+}
+
+.message-assistant {
+  background: var(--surface-muted);
+  align-self: flex-start;
+}
+
+.message-role {
+  display: block;
+  color: var(--primary);
+  font-size: 0.76rem;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chat-form {
+  border-top: 1px solid #334155;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.7rem;
+  padding: 1rem 1.2rem;
+}
+
+.chat-form input {
+  background: #0b1220;
+  border: 1px solid #334155;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.chat-form button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: #06212a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status-text,
+.error-text {
+  font-size: 0.85rem;
+  padding: 0 1.2rem 1rem;
+}
+
+.status-text {
+  color: var(--text-muted);
+}
+
+.error-text {
+  color: var(--danger);
+}
